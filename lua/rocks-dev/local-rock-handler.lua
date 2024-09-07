@@ -14,7 +14,7 @@ local ROCKS_DEV_VERSION = "rocksdev"
 ---@return async fun(on_progress: fun(message: string), on_error: fun(message: string), on_success?: fun(opts: rock_handler.on_success.Opts)) | nil
 function rock_handler.get_sync_callback(rock)
     local user_configuration = api.get_rocks_toml()
-    if rock.dir or (rock.dev and user_configuration.dev.path) then
+    if rock.dir or (rock.dev and user_configuration.dev and user_configuration.dev.path) then
         ---@cast rock rocks-dev.DevRockSpec
         ---@param on_progress fun(message: string)
         ---@param _ fun(message: string) on_error
