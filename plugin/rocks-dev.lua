@@ -10,6 +10,8 @@ if vim.g.rocks_dev_nvim_did_setup then
     return
 end
 
+vim.g.rocks_dev_nvim_did_setup = true
+
 local ok, api = pcall(require, "rocks.api")
 
 if not ok then
@@ -21,5 +23,3 @@ local user_configuration = api.get_rocks_toml()
 ---@cast user_configuration rocks-dev.RocksToml
 
 require("rocks-dev").setup(user_configuration)
-
-vim.g.rocks_dev_nvim_did_setup = true
